@@ -40,7 +40,7 @@ export async function generateUserStripe(priceId: string): Promise<responseActio
       const stripeSession = await stripe.checkout.sessions.create({
         success_url: billingUrl,
         cancel_url: billingUrl,
-        payment_method_types: ["card"],
+        allowed_payment_method_types: ["card"],
         mode: "subscription",
         billing_address_collection: "auto",
         customer_email: user.email,
